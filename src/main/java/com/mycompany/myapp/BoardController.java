@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 @RequestMapping(value="/board")
 public class BoardController {
@@ -18,6 +19,13 @@ public class BoardController {
 	public String boardlist(Model model) {
 		model.addAttribute("list",boardService.getBoardList());
 		return "list";
+	}
+	
+	@RequestMapping(value = "/view/{id}",method = RequestMethod.GET)
+	public String viewPost(@PathVariable("id") int id, Model model) {
+		BoardVO  boardVO = boardService.getBoard(id);
+		model.addAttribute("u",boardVO);
+		return "view";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)

@@ -8,35 +8,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Edit</title>
+<link rel="stylesheet" href="../../resources/css/creation5.css">
 </head>
 <body>
-	<h1>Edit Form</h1>
-	<form:form method="POST" action="../editok" modelAttribute="u">
-		<table>
-			<tr>
-				<td></td>
-				<td><form:hidden path="sid" /></td>
-			</tr>
-			<tr>
-				<td>Title :</td>
-				<td><form:input path="title" /></td>
-			</tr>
-			<tr>
-				<td>Detail :</td>
-				<td><form:input path="detail" /></td>
-			</tr>
-				<td>Photo :</td>
-				<td><img src="photo"></td>
-				<tr><td>Photo:</td><td><input type='file'name='photo'/></td></tr>
-				
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Edit Save" /><input
-					type="button" value="Cancel" onclick="history.back()" /></td>
-			</tr>
-		</table>
-	</form:form>
+	<div id='back'>
+		<div id='header'>
+			<a href="../list"><img id='logo' src='../../resources/img/pixtagram.png'></a>
+		</div>
+		<div class='main'>
+			<div id='leftgap'>
+				<a class='button' href="../list">Cancel</a>
+			</div>
+			<div id='mid'>
+				<form:form method="POST" action="../editok" modelAttribute="u">
+					<div id='mid-top'>
+						<div id='titled'>Title : <form:input type='text' path="title" /></div>
+						<div id='num'><form:hidden path="sid" /></div>
+					</div>
+					<div id='mid-center'>
+						<div id='image'>
+							<div class='wrapper'>
+								<div class='thumbnail'>
+									<div class='center'>
+										<img src="photo">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id='mid-bottom'>
+						<div id='photoinput'>Photo : <input type='file' name='photo' /></div>
+						<div id='content'>Detail : <form:input path="detail" /></div>
+					</div>
+				</form:form>
+			</div>
+			<div id='rightgap'>
+				<input class='submitbutton' type="submit" value="Edit" />
+			</div>
+		</div>
+	</div>
+
 
 
 </body>
