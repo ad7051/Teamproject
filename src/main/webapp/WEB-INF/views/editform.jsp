@@ -12,43 +12,66 @@
 <link rel="stylesheet" href="../../resources/css/creation5.css">
 </head>
 <body>
-	<div id='back'>
-		<div id='header'>
-			<a href="../list"><img id='logo' src='../../resources/img/pixtagram.png'></a>
-		</div>
-		<div class='main'>
-			<div id='leftgap'>
-				<a class='button' href="../list">Cancel</a>
+<%
+
+System.out.println("path: "+request.getServletContext().getRealPath("upload"));
+System.out.println("filename"+request.getAttribute("photo"));
+String p1=request.getServletContext().getRealPath("upload");
+
+
+String path=p1+"\\"+request.getAttribute("photo");
+System.out.println(path);
+request.setAttribute("path",path);
+%>
+	<form:form method="POST" action="../editok" modelAttribute="u">
+		<div id='back'>
+			<div id='header'>
+				<a href="../list"><img id='logo'
+					src='../../resources/img/pixtagram.png'></a>
 			</div>
-			<div id='mid'>
-				<form:form method="POST" action="../editok" modelAttribute="u">
+			<div class='main'>
+				<div id='leftgap'>
+					<a class='button' href="../list">Cancel</a>
+				</div>
+				<div id='mid'>
+
 					<div id='mid-top'>
-						<div id='titled'>Title : <form:input type='text' path="title" /></div>
-						<div id='num'><form:hidden path="sid" /></div>
+						<div id='titled'>
+							Title :
+							<form:input type='text' path="title" />
+						</div>
+						<div id='num'>
+							<form:hidden path="sid" />
+						</div>
 					</div>
 					<div id='mid-center'>
 						<div id='image'>
 							<div class='wrapper'>
 								<div class='thumbnail'>
 									<div class='center'>
-										<img src="photo">
+									<img src="${path}">
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div id='mid-bottom'>
-						<div id='photoinput'>Photo : <input type='file' name='photo' /></div>
-						<div id='content'>Detail : <form:input path="detail" /></div>
+						<div id='photoinput'>
+							Photo : <input type='file' name='photo' />
+						</div>
+						<div id='content'>
+							Detail :
+							<form:input path="detail" />
+						</div>
 					</div>
-				</form:form>
-			</div>
-			<div id='rightgap'>
-				<input class='submitbutton' type="submit" value="Edit" />
+
+				</div>
+				<div id='rightgap'>
+					<input class='submitbutton' type="submit" value="Edit Save" />
+				</div>
 			</div>
 		</div>
-	</div>
-
+	</form:form>
 
 
 </body>

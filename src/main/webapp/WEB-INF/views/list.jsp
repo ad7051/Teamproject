@@ -31,7 +31,7 @@
 
 				<c:forEach items="${list}" var="u">
 					<div id='tr' style="cursor: pointer;"
-						onclick="location.href='view/${u.sid}';">
+						<%-- onclick="location.href='view/${u.sid}';" --%>>
 						<div id='image'>
 							<div class='wrapper'>
 								<div class='thumbnail'>

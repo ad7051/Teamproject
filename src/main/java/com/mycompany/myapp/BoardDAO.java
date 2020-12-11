@@ -45,5 +45,10 @@ public class BoardDAO {
 		List<BoardVO> result = sqlSession.selectList("Board.getBoardList");
 		return result;
 	}
+	public String getPhoto(int seq) {
+		BoardVO vo=sqlSession.selectOne("Board.getBoard",seq);
+		String result=vo.getPhoto();
+		return result;
+	}
 	
 }

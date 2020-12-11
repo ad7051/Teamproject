@@ -6,4 +6,5 @@
 	<typeAliases>
 		<typeAlias alias="board" type="com.mycompany.myapp.BoardVO" />
 	</typeAliases>
+	
 </configuration>
