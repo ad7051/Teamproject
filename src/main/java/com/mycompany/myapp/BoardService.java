@@ -9,8 +9,7 @@ public interface BoardService {
 	public int insertBoard(BoardVO vo);
 	public int insertfile(HttpServletRequest request);
 	public int deleteBoard(int seq);
-
-	public int updateBoard(BoardVO vo);
+	int updateBoard(HttpServletRequest request);
 
 	public BoardVO getBoard(int seq);
 

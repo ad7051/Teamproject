@@ -23,7 +23,7 @@ String path=p1+"\\"+request.getAttribute("photo");
 System.out.println(path);
 request.setAttribute("path",path);
 %>
-	<form:form method="POST" action="../editok" modelAttribute="u">
+	<form:form method="POST" action="../editok" enctype="multipart/form-data" modelAttribute="u">
 		<div id='back'>
 			<div id='header'>
 				<a href="../list"><img id='logo'
@@ -49,7 +49,7 @@ request.setAttribute("path",path);
 							<div class='wrapper'>
 								<div class='thumbnail'>
 									<div class='center'>
-									<img src="${path}">
+									<img class="test"src="${path}">
 									</div>
 								</div>
 							</div>

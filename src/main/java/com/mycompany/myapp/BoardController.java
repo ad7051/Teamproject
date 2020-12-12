@@ -57,8 +57,8 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/editok", method = RequestMethod.POST)
-	public String editPostOk(BoardVO vo) {
-		if (boardService.updateBoard(vo) == 0)
+	public String editPostOk(HttpServletRequest request) {
+		if (boardService.updateBoard(request) == 0)
 			System.out.println("update is not working");
 		else
 			System.out.println("update is working");
