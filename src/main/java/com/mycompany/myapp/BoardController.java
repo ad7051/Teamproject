@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.oreilly.servlet.MultipartRequest;
+
 @Controller
 @RequestMapping(value = "/board")
 public class BoardController {
@@ -28,6 +30,8 @@ public class BoardController {
 	public String viewPost(@PathVariable("id") int id, Model model) {
 		BoardVO boardVO = boardService.getBoard(id);
 		model.addAttribute("u", boardVO);
+		System.out.println("testcheck"+boardVO.getPhoto());
+		model.addAttribute("photo", boardVO.getPhoto());
 		return "view";
 	}
 
@@ -58,10 +62,9 @@ public class BoardController {
 
 	@RequestMapping(value = "/editok", method = RequestMethod.POST)
 	public String editPostOk(HttpServletRequest request) {
-		if (boardService.updateBoard(request) == 0)
-			System.out.println("update is not working");
-		else
-			System.out.println("update is working");
+		System.out.println("title:"+request.getParameter("title"));
+		
+		boardService.updatefile(request);
 		return "redirect:list";
 	}
 

@@ -57,12 +57,13 @@ request.setAttribute("path",path);
 					</div>
 					<div id='mid-bottom'>
 						<div id='photoinput'>
-							Photo : <input type='file' name='photo' />
+							Photo : <form:input type='file' path="photo"  name="photo"/>
 						</div>
 						<div id='content'>
 							Detail :
 							<form:input path="detail" />
 						</div>
+					
 					</div>
 
 				</div>

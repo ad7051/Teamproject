@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface BoardService {
 	public int insertBoard(BoardVO vo);
+
 	public int insertfile(HttpServletRequest request);
+
+	public int updatefile(HttpServletRequest request);
+
 	public int deleteBoard(int seq);
-	int updateBoard(HttpServletRequest request);
 
 	public BoardVO getBoard(int seq);
 
@@ -28,5 +31,7 @@ public interface BoardService {
 	}
 
 	public String getPhoto(int seq);
+
+	public int updateBoard(BoardVO vo);
 
 }

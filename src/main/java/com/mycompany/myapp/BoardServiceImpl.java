@@ -12,9 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.crud.DAO.HACDAO;
-import com.crud.bean.HACVO;
-import com.crud.common.FileUpload;
+import com.mycompany.myapp.BoardDAO;
+import com.mycompany.myapp.BoardVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -51,7 +50,7 @@ public class BoardServiceImpl implements BoardService {
 			filename = multipartRequest.getFilesystemName("photo");
 			
 			one = new BoardVO();
-			String id = multipartRequest.getParameter("id");
+			String id = multipartRequest.getParameter("sid");
 			if(id!=null&&!id.equals("")) one.setSid(Integer.parseInt(id));
 			one.setTitle(multipartRequest.getParameter("title"));
 			if (id!=null&&!id.equals("")) {  // edit 인 경우 기존 파일이름과 비교해야 함 
@@ -90,7 +89,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int updateBoard(HttpServletRequest request) {
+	public int updateBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return boardDAO.updateBoard(vo);
+	}
+	
+	@Override
+	public int updatefile(HttpServletRequest request) {
 		System.out.println("updatefile");
 		String filename = ""; // 업로드되는 파일이름 저장용
 		int sizeLimit = 15 * 1024 * 1024; // 파일크기 (15MB)
@@ -118,29 +123,31 @@ public class BoardServiceImpl implements BoardService {
 			System.out.println(filename);
 			
 			one = new BoardVO();
-			String id = multipartRequest.getParameter("id");
-			if(id!=null&&!id.equals("")) one.setSid(Integer.parseInt(id));
-			one.setTitle(multipartRequest.getParameter("title"));
-			if (id!=null&&!id.equals("")) {  // edit 인 경우 기존 파일이름과 비교해야 함 
-				BoardDAO dao = new BoardDAO();
-				String oldfilename = dao.getPhoto(Integer.parseInt(id));
-				if(filename!=null && oldfilename!=null) // 새로 덮어씌울 파일이 전송된 경우 이전 파일을 제거함 
-					BoardService.deleteFile(request, oldfilename);
-				else if(filename==null && oldfilename!=null) // 새로운 파일이 없는 경우 이전 파일을 유지함 
-					filename = oldfilename;
+			String id = multipartRequest.getParameter("sid");
+			one.setSid(Integer.parseInt(id));	
+			BoardVO to=new BoardVO();
+			to=getBoard(Integer.parseInt(id));
+			String photoname=to.getPhoto();
+			System.out.println("Photo"+photoname);
+			if(filename==null) {
+				System.out.println("testwork on null");
+				one.setPhoto(photoname);
+			}else {
+			one.setPhoto(filename);
 			}
-			one.setPhoto(filename);			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		one.setPhoto(filename);
 		one.setTitle(multipartRequest.getParameter("title"));
+		one.setPassword(multipartRequest.getParameter("password"));
 		one.setDetail(multipartRequest.getParameter("detail"));
 		System.out.println("realPath:" + realPath);
+		System.out.println("file name: "+one.getPhoto()+"  title: "+one.getTitle()+" detail: "+one.getDetail()+"id :"+one.getSid()+"pssword: "+one.getPassword());
 		
 		
+		boardDAO.updateBoard(one);
 		// TODO Auto-generated method stub
-		return boardDAO.updateBoard(one);
+		return  0;
 	}
 
 	@Override
@@ -148,7 +155,6 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return boardDAO.getBoard(seq);
 	}
-
 	@Override
 	public String getPhoto(int seq) {
 		BoardVO vo = boardDAO.getBoard(seq);

@@ -46,7 +46,8 @@ public class BoardDAO {
 		return result;
 	}
 	public String getPhoto(int seq) {
-		BoardVO vo=sqlSession.selectOne("Board.getBoard",seq);
+		System.out.println("DAO"+seq);
+		BoardVO vo = sqlSession.selectOne("Board.getPhoto",seq);
 		String result=vo.getPhoto();
 		return result;
 	}

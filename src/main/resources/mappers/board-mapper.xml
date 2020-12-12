@@ -32,4 +32,7 @@
 	<select id="getBoardList" resultType="board">
 		select * from TP order by sid desc
 	</select>
+	<select id="getPhoto" resultType="board">
+		select * from TP where sid=#{sid}
+	</select>
 </mapper>
