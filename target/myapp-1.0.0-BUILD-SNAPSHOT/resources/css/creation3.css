@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	background-image: url('../img/background.jpg');
+	background-size: cover;
+}
+
+#list {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#tr{
+	border-bottom: 2px solid #226982;
+	padding:25px;
+	overflow:auto;
+}
+
+#tr:hover {
+	background-color: #F1DAFE;
+}
+
+#logo {
+	width: 15%;
+	height: 7%;
+	float: left;
+}
+
+h1 {
+	padding-top: 30px;
+}
+
+#back {
+	margin: 2%;
+	padding: 2%;
+	border: 2px solid #226982;
+	border-radius: 10px;
+}
+
+.main {
+	height:1000px;
+	overflow:auto;
+	margin-top: 10%;
+	border: 2px solid #226982;
+	border-radius: 10px;
+	padding: 2%;
+	border: 2px solid #226982;
+}
+
+.addbutton {
+	height: 3%;
+	float: right;
+	margin-top: 5%;
+	margin-right: 2%;
+	border: 2px solid #226982;
+	border-radius: 5px;
+	padding: 5px;
+	color: #226982;
+}
+
+.addbutton:hover {
+	background-color: #F1DAFE;
+}
+
+a {
+	text-decoration: none;
+}
+#image{
+	float:left;
+	width:20%;
+}
+
+#title{
+	padding-left:20px;
+	float:left;
+	padding-top:20px;
+	width:70%;
+	font-size:30px;
+}
+#num{
+	padding-top:20px;
+	float:left;
+	width:10%;
+}
+
+#like{
+	float:left;
+	padding-top:50px;
+	padding-right:20px;
+	text-align:right;
+	width:65%;
+}
+#dislike{
+	float:left;
+	padding-top:50px;
+	width:15%;
+}
+#t_button{
+	float:left;
+	padding-top:50px;
+	width:55%;
+}
+#upload{
+	float:left;
+	padding-top:50px;
+	width:25%;
+}
+.edit{
+	padding-left:20px;
+	float:left;
+	border: 2px solid #226982;
+	border-radius: 5px;
+	padding: 5px;
+	color: #226982;
+}
+.delete{
+	margin-left:20px;
+	float:left;
+	border: 2px solid #226982;
+	border-radius: 5px;
+	padding: 5px;
+	color: #226982;
+}
+.lbutton{
+	border: 2px solid #226982;
+	border-radius: 5px;
+	padding: 5px;
+	color: #226982;
+}
+.lbutton:hover{
+	background-color: #E2B1FD;
+}
+
+.edit:hover {
+	background-color: #E2B1FD;
+}
+.delete:hover {
+	background-color: #E2B1FD;
+}
+
+#edit_wrap{
+	padding-left:20px;
+}
+.wrapper{
+	width: 100%;
+	background-color:white;
+}
+
+.thumbnail {
+	position: relative;
+	padding-top: 100%; /* 1:1 ratio */
+	overflow: hidden;
+	background-color:white;
+}
+
+.thumbnail .center {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-transform: translate(50%, 50%);
+	-ms-transform: translate(50%, 50%);
+	transform: translate(50%, 50%);
+	background-color:white;
+}
+
+.thumbnail .center .test{
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	height: auto;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color:white;
+}
+
+.main::-webkit-scrollbar {
+  width: 6px;
+}
+.main::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.main::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+.main::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
