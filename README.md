@@ -21,7 +21,8 @@ from Worker to Manager
 ### MakeFIle
 pfind: pfind.c rcv.c	
 >gcc -o pfind pfind.c
->gcc -o rcv rcv.c=	
+>gcc -o rcv rcv.c
+	
 clear: rcv pfind	
 >rm *.o  
 	
