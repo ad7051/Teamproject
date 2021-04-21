@@ -9,10 +9,14 @@ In this "string", various data are distinguished through a space.
 '
 ##### Task
 from Manager to Worker
+
 (string Path) (int Option_Case_sensitive) (int Option_Print_Path) (string Words)...
+
 ##### Report
 from Worker to Manager
- (int Numbe_of_subDir) (string subDir_names) (int Numberof_Found_Files) (int      Numberof_Found_Lines)
+
+(int Numbe_of_subDir) (string subDir_names) (int Numberof_Found_Files) (int      Numberof_Found_Lines)
+
 --------------------
 ### MakeFIle
 pfind: pfind.c rcv.c
