@@ -3,10 +3,10 @@
 ### 21900814 Hwang SuHwan
 --------------------
 ### Concept of named two named pipe
-'
+
 Use "string" as the type of transfer between worker and manager.
 In this "string", various data are distinguished through a space.
-'
+
 ##### Task
 from Manager to Worker
 
@@ -19,15 +19,12 @@ from Worker to Manager
 
 --------------------
 ### MakeFIle
-pfind: pfind.c rcv.c
-	'
-	gcc -o pfind pfind.c
-	gcc -o rcv rcv.c
-	'
-clear: rcv pfind
-	'
-	rm *.o  
-	'
+pfind: pfind.c rcv.c	
+>gcc -o pfind pfind.c
+>gcc -o rcv rcv.c=	
+clear: rcv pfind	
+>rm *.o  
+	
 To compile: make pfind
 To Runm pfind: ./pfind <option> <dir> <words>
 
@@ -40,11 +37,9 @@ To Runm pfind: ./pfind <option> <dir> <words>
 5. Open the named pipe.
 6. Send the task
 7. Loop(Repeat until there are no Dir left.)
-	'
-	8. Get the report from worker
-	9. Save the result of worker
-	10. Make string acording to the task form from report subdir name
-	'
+>8. Get the report from worker
+>9. Save the result of worker
+>10. Make string acording to the task form from report subdir name	
 11. Print out SUmmary
 12. Kill All worker
 13. END
@@ -57,21 +52,13 @@ Loop(Unitl Killed)
 2. Stires Task values
 3. Open dir
 4. Loop(Repeat until there are no files left)
-	'
-	5. Check the Type of Files(SL or Dir or Others)
-		'
-		5. if SL ignore
-		6. else if DIR (ignore start with .->to ignore  "."and ".." 
-			'
-			7. else save name and count it)
-			'
-		8. else (Check is it ASCII,Text or not if it is open)
-		9. find the word, if find->print and save
-			'
-			10. else close
-			'
-		'
-	'
+>5. Check the Type of Files(SL or Dir or Others)
+>>6. if SL ignore
+>>7. else if DIR (ignore start with .->to ignore  "."and ".."
+>>>7. else save name and count it)
+>>8. else (Check is it ASCII,Text or not if it is open)
+>>9. find the word, if find->print and save
+>>>10. else close
 11. Make a String according to the report form
 12. send it to report
 13. END
